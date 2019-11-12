@@ -9,9 +9,12 @@ int main(int argc, char* argv[]) {
 
     lbl.show();
     cmd.show();
+
+    // from this
     QObject::connect(&cmd, SIGNAL(clicked()), &counter, SLOT(slotInc()));
     QObject::connect(&counter, SIGNAL(counterChanged(int)), &lbl, SLOT(setNum(int)));
     QObject::connect(&counter, SIGNAL(goodBye()), &app, SLOT(quit()));
+    // to this
 
     return app.exec();
 }
